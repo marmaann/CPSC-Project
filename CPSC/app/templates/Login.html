@@ -1,0 +1,80 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/Login-Form-Basic-icons.css">
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/Sign-Up-Form---Gabriela-Carvalho.css">
+    <link rel="stylesheet" href="/static/assets/css/Navbar-Right-Links-Dark-icons.css">
+    <link rel="stylesheet" href="/static/assets/css/Navbar-Right-Links-icons.css">
+</head>
+
+<body>
+  
+    <div id="login">
+        <img src="/static/assets/img/CPSC Logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 150px; height: 150px; top:30%">
+        <br><br>
+        <form id="formbox1" action="/login" method="POST">
+            <div class="gc004-container">
+                
+                <h2 id="loginheader">Welcome Back!</h2>
+                <input type="radio" name="slider" id="customer" value="Manager" checked>
+                <input type="radio" name="slider" id="merchant" value="Investigator">
+                
+                <nav>
+                    <label for="customer" class="customer">Manager</label>
+                    <label for="merchant" class="merchant">Investigator</label>
+                    <div class="slider"></div>
+                </nav>
+                <section>
+                    <div class="content customer-login">
+                        <input type="text" id="emailbox" placeholder="Enter Username" name="c-email">
+                        <input type="password" id="passwordbox" placeholder="Enter Password" name="c-psw">
+                    </div>
+                    <div class="content merchant-login">
+                        <input type="text" id="emailbox" placeholder="Enter Username" name="m-email">
+                        <input type="password" id="passwordbox" placeholder="Enter Password" name="m-psw">
+                    </div> 
+                    
+                    <button class="gc-signupbtn" type="submit" id="loginBtn">Log In</button>
+                </section>
+                </div>
+
+
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="flash-message" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 999;">
+                        <div class="alert alert-info" role="alert">
+                            <ul>
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            </div>
+        </form>
+    </div>
+    <script>
+        var cancelButton = document.getElementById("cancelbtn");
+    
+        // Add a click event listener to the button
+        cancelButton.addEventListener("click", function() {
+                window.location.href = '/';
+            });
+    </script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+   
+</body>
+
+</html>
+
+{% endblock content %}
