@@ -1,11 +1,14 @@
+
 # Start by pulling the Python image
 FROM python:3.8-alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/dl-4.alpinelinux.org/' /etc/apk/repositories
 
 # Set environment variable for unbuffered logging (useful in Docker)
 ENV PYTHONUNBUFFERED=1
 
 # Copy the requirements file into the Docker image
-COPY ./CPSC/requirements.txt /requirements.txt
+COPY requirements.txt /requirements.txt
+
 
 # Install build dependencies and libraries
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
