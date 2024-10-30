@@ -7,7 +7,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/dl-4.alpinelinux.org/' /etc/apk/repositorie
 ENV PYTHONUNBUFFERED=1
 
 # Copy the requirements file into the Docker image
-COPY requirements.txt /requirements.txt
+COPY ./requirements.txt /requirements.txt
+
 
 
 # Install build dependencies and libraries
