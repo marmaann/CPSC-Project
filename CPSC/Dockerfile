@@ -17,4 +17,4 @@ RUN apk add --update --no-cache --virtual .tmp-build-deps \
 EXPOSE 5005
 
 # Default command to start the app
-CMD ["gunicorn", "--config", "CPSC/gunicorn-cfg.py", "run:app"]
+CMD ["gunicorn", "--config", "CPSC/gunicorn-cfg.py", "CPSC.run:app"]
