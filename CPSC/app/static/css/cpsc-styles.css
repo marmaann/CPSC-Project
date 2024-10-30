@@ -1,0 +1,37 @@
+/* cpsc-styles.css */
+.cpsc-theme {
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    max-width: 500px; /* Ensure container is wide enough */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Prevents any overflow */
+}
+
+.cpsc-logo {
+    width: 200px; /* Set a fixed width to ensure visibility */
+    height: 200px;
+}
+
+.cpsc-header {
+    color: #004080; /* CPSC blue color */
+}
+
+.cpsc-input {
+    border: 1px solid #004080; /* CPSC blue border */
+    margin-bottom: 10px;
+    padding: 8px; /* Added padding for a more refined look */
+}
+
+.cpsc-button {
+    background-color: #004080; /* CPSC blue background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.cpsc-button:hover {
+    background-color: #003366; /* Darker blue on hover */
+}

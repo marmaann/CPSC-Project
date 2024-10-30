@@ -2,7 +2,7 @@
 FROM python:3.8-alpine
 
 # copy the requirements file into the Docker image
-COPY ./requirements.txt /requirements.txt
+COPY ./CPSC/requirements.txt /requirements.txt
 
 # switch working directory
 # WORKDIR /app
@@ -21,3 +21,6 @@ RUN python -m pip install --no-cache-dir --disable-pip-version-check --requireme
 
 EXPOSE 5005
 CMD ["gunicorn", "--config", "gunicorn-cfg.py", "run:app"]
+
+
+

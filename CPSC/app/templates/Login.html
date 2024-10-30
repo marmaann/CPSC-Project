@@ -12,17 +12,17 @@
     <link rel="stylesheet" href="/static/assets/bootstrap/css/Sign-Up-Form---Gabriela-Carvalho.css">
     <link rel="stylesheet" href="/static/assets/css/Navbar-Right-Links-Dark-icons.css">
     <link rel="stylesheet" href="/static/assets/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="/static/assets/css/cpsc-styles.css"> <!-- Custom CPSC styles -->
 </head>
 
 <body>
-  
-    <div id="login">
-        <img src="/static/assets/img/CPSC Logo.png" alt="Logo" style="display: block; margin: 0 auto; width: 150px; height: 150px; top:30%">
+    <div id="login" class="cpsc-theme">
+        <img src="/static/img/CPSC logo.jpg" id="cpsc-logo" alt="CPSC Logo" class="cpsc-logo">
+
         <br><br>
         <form id="formbox1" action="/login" method="POST">
             <div class="gc004-container">
-                
-                <h2 id="loginheader">Welcome Back!</h2>
+                <h2 id="loginheader" class="cpsc-header">Welcome Back!</h2>
                 <input type="radio" name="slider" id="customer" value="Manager" checked>
                 <input type="radio" name="slider" id="merchant" value="Investigator">
                 
@@ -33,19 +33,17 @@
                 </nav>
                 <section>
                     <div class="content customer-login">
-                        <input type="text" id="emailbox" placeholder="Enter Username" name="c-email">
-                        <input type="password" id="passwordbox" placeholder="Enter Password" name="c-psw">
+                        <input type="text" id="emailbox" placeholder="Enter Username" name="c-email" class="cpsc-input">
+                        <input type="password" id="passwordbox" placeholder="Enter Password" name="c-psw" class="cpsc-input">
                     </div>
                     <div class="content merchant-login">
-                        <input type="text" id="emailbox" placeholder="Enter Username" name="m-email">
-                        <input type="password" id="passwordbox" placeholder="Enter Password" name="m-psw">
+                        <input type="text" id="emailbox" placeholder="Enter Username" name="m-email" class="cpsc-input">
+                        <input type="password" id="passwordbox" placeholder="Enter Password" name="m-psw" class="cpsc-input">
                     </div> 
                     
-                    <button class="gc-signupbtn" type="submit" id="loginBtn">Log In</button>
+                    <button class="gc-signupbtn cpsc-button" type="submit" id="loginBtn">Log In</button>
                 </section>
-                </div>
-
-
+            </div>
 
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -60,21 +58,11 @@
                     </div>
                 {% endif %}
             {% endwith %}
-            </div>
         </form>
     </div>
-    <script>
-        var cancelButton = document.getElementById("cancelbtn");
-    
-        // Add a click event listener to the button
-        cancelButton.addEventListener("click", function() {
-                window.location.href = '/';
-            });
-    </script>
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
-   
+
+    <script src="/static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
-{% endblock content %}
+{% endblock %}

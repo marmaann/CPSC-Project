@@ -1,9 +1,20 @@
-Flask==2.3.3
-gunicorn
-# sqlalchemy==2.0.21
-# flask_sqlalchemy==3.1.1
-pymysql
-flask_migrate
-Jinja2==3.1.2
-cffi
-cryptography
+# Pulling the lightweight Python image
+FROM python:3.8-alpine
+
+# Set environment variable for unbuffered logging (useful in Docker)
+ENV PYTHONUNBUFFERED=1
+
+# Copy the requirements file into the Docker image
+COPY requirements.txt /requirements.txt
+
+# Install build dependencies and libraries
+RUN apk add --update --no-cache --virtual .tmp-build-deps \
+    gcc libc-dev linux-headers postgresql-dev libffi-dev \
+    && python -m pip install --no-cache-dir --requirement /requirements.txt \
+    && apk del .tmp-build-deps
+
+# Expose the application port (adjust as needed)
+EXPOSE 5005
+
+# Default command to start the app
+CMD ["gunicorn", "--config", "gunicorn-cfg.py", "run:app"]
